@@ -44,12 +44,12 @@ function Header() {
 
           <div className='logo'>
               <h1>
-                  <Link to='/'>{isAdmin ? "Admin" : "Hallomi Shopp"}</Link>
+                  <Link to='/'>{isAdmin ? "Admin" : "Hallomi Shop"}</Link>
               </h1>
           </div>
 
           <ul>
-              <li><Link to='/'>{isAdmin ? "Products" : "Shoop"}</Link></li>
+              <li><Link to='/'>{isAdmin ? "Products" : "Shop"}</Link></li>
 
               {isAdmin && adminRouter()}
               {
