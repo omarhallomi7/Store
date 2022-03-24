@@ -15,6 +15,7 @@ app.use(cookieParser())
 app.use(fileUpload({
   useTempFiles: true
 }))
+app.use(express.static("./client/build"))
 
 //Routes
 app.use('/user',require('./routes/userRouter'))
