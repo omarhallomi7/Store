@@ -4,6 +4,8 @@ import Login from './auth/Login'
 import Register from './auth/Register'
 import Cart from './cart/Cart'
 import Products from './products/Products'
+import OrderHistory from './history/OrderHistory'
+import OrderDetails from './history/OrderDetails'
 import DeatailProduct from './detailProduct/DeatailProduct'
 import NotFound from './utils/not-found/NotFound'
 import { GlobalState } from './../../GlobalState';
@@ -20,6 +22,8 @@ function Pages() {
         <Route path="*" element={<NotFound />} />
         {/* <Route path="/register" element={<Register />} /> 
         <Route path="/login" element={<Login />} /> */}
+        <Route path="/history" element={isLogged ? <OrderHistory/> : <NotFound/> } />
+        <Route path="/history/:id" element={isLogged ? <OrderDetails/> : <NotFound/> } />
         <Route path="/login" element={isLogged ? <NotFound/> : <Login/>} />
         <Route path="/register" element={isLogged ? <NotFound/> : <Register />} />
         <Route path="/" element={<Products />}/>
