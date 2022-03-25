@@ -29,13 +29,16 @@ const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
   console.log("connected to DB!");
-})
+});
 
+app.get('/*',(req, res)=>{
+  res.sendFile(__dirname + '/../client/build/index.html');
+})
 
 
 server.listen(port, () => {
