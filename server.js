@@ -4,6 +4,7 @@ const port = process.env.PORT || 3001 ;
 const mongoose = require('mongoose');
 const http = require('http');
 const cors = require('cors');
+const path = require('path');
 const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 const server = http.createServer(app);
@@ -15,7 +16,7 @@ app.use(cookieParser())
 app.use(fileUpload({
   useTempFiles: true
 }))
-app.use(express.static("./client/build"))
+
 
 //Routes
 app.use('/user',require('./routes/userRouter'))
@@ -37,9 +38,13 @@ db.once("open", () => {
   console.log("connected to DB!");
 });
 
-app.get('/*',(req, res)=>{
-  res.sendFile(__dirname + '/../client/build/index.html');
-})
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static("./client/build"))
+  app.get('*',(req, res)=>{
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html') );
+  })
+}
+
 
 
 server.listen(port, () => {
