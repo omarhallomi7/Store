@@ -12,6 +12,7 @@
     height: 300px;
     display: block;
     /* object-fit: cover; */
+    width: 370px;
 }
 
 .product_box h2{
