@@ -11,7 +11,7 @@ function ProductsAPI() {
 
     useEffect(() => {
         getProducts()
-    },[])
+    },[callback])
   return {
     products: [products,setProducts],
     callback: [callback, setCallback]

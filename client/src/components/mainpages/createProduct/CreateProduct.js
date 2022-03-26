@@ -113,7 +113,6 @@ function CreateProduct() {
             }
             setCallback(!callback)
             navigate('/')
-            window.location.reload();
         } catch (err) {
             alert(err.response.data.msg)
         }
